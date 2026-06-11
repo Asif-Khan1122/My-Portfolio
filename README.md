@@ -1,20 +1,20 @@
 <<<<<<< HEAD
-# myportfolio - Personal Portfolio Free Template
+# picto - Personal Portfolio Free Template
 
 #### Preview
 
-- [Demo](https://themewagon.github.io/myportfolio/)
+- [Demo](https://themewagon.github.io/picto/)
 
 #### Download
 
-- [Download from ThemeWagon](https://themewagon.com/themes/myportfolio)
+- [Download from ThemeWagon](https://themewagon.com/themes/picto)
 
 ## Getting Started
 
 1. Clone Repository
 
 ```
-git clone https://github.com/themewagon/myportfolio.git
+git clone https://github.com/themewagon/picto.git
 ```
 
 2. Install Dependencies

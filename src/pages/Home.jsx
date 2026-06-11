@@ -1,5 +1,5 @@
-import { useState } from "react";
-import NavBar from "../components/common/navbar/NavBar"; // Import NavBar
+import React, { useState } from "react";
+import NavBar from "../components/common/navbar/NavBar";
 import Introduction from "../components/introduction/Introduction";
 import Profile from "../components/profile/Profile";
 import WorkProcess from "../components/workProcess/WorkProcess";
@@ -18,29 +18,33 @@ const Home = () => {
 
   return (
     <div className='relative'>
-      <NavBar onAiClick={() => setIsAiOpen(true)} /> {/* Add NavBar here */}
-      <div className='introduction-profile-background'>
-        <div className='content'>
-          <Introduction />
-          <Profile />
+      <NavBar onAiClick={() => setIsAiOpen(true)} />
+
+      <main id='main-content' tabIndex='-1'>
+        <div className='introduction-profile-background'>
+          <div className='content'>
+            <Introduction />
+            <Profile />
+          </div>
         </div>
-      </div>
-      <div className='bg-soft-white pt-30'>
-        <WorkProcess />
-      </div>
-      <Portfolio />
-      <div className='bg-gray-900'>
-        <WorkTogether />
-      </div>
-      <div className='blog-background'>
-        <Blog />
-      </div>
-      <div className='bg-soft-white'>
-        <Profession />
-      </div>
-      <HappyClients />
-      <Testimonial />
-      <Contact />
+        <div className='bg-soft-white pt-30'>
+          <WorkProcess />
+        </div>
+        <Portfolio />
+        <div className='bg-gray-900'>
+          <WorkTogether />
+        </div>
+        <div className='blog-background'>
+          <Blog />
+        </div>
+        <div className='bg-soft-white'>
+          <Profession />
+        </div>
+        <HappyClients />
+        <Testimonial />
+        <Contact />
+      </main>
+
       <AiAssistant isOpen={isAiOpen} onClose={() => setIsAiOpen(false)} />
     </div>
   );

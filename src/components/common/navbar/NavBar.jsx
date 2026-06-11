@@ -30,7 +30,7 @@ const menu = navItems.map((item) => (
         backgroundColor: "#9929fb",
         color: "white",
       }}
-      className={`hover:text-myportfolio-primary px-5 py-3 mx-1`}
+      className={`hover:text-picto-primary px-5 py-3 mx-1`}
     >
       {item.name}
     </Link>

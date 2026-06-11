@@ -15,7 +15,7 @@ const Roles = ({ role }) => {
       className='p-4 xs:p-8 bg-white hover:shadow-xl h-auto shadow-gray-300 ease-out duration-800 rounded-lg my-6 flex relative overflow-hidden'
     >
       <p
-        className={`bg-myportfolio-primary absolute start-0 w-0 h-full mt-[-16px] xs:mt-[-32px] ${
+        className={`bg-picto-primary absolute start-0 w-0 h-full mt-[-16px] xs:mt-[-32px] ${
           mouseHover && "duration-200 w-[5px]"
         }`}
       />

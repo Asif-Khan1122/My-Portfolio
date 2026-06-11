@@ -12,7 +12,7 @@ const WorkSteps = ({ data, style }) => {
     >
       <div
         className={`w-11 h-11 sm:w-18 sm:h-18 ${
-          hover ? "bg-myportfolio-primary" : "bg-[#EDD8FF80]"
+          hover ? "bg-picto-primary" : "bg-[#EDD8FF80]"
         } text-center center rounded-md`}
       >
         <svg

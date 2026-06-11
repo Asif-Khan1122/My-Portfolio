@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui";
 @plugin "daisyui" {
   themes:
     light --default,
@@ -7,56 +6,119 @@
     cupcake;
 }
 
-* {
-  transition-property: all;
-  transition-timing-function: var(
-    --tw-ease,
-    var(--default-transition-timing-function)
-  );
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
-  transition-duration: 200ms;
-}
+/* Instead, apply transitions only to specific elements that need them */
 
 @theme {
-  --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
-  --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
-  --breakpoint-xxl: 82.5rem; /* COMMENT: 1320px */
-  --color-myportfolio-primary: #9929fb;
-  --color-myportfolio-primary-dark: #650fa0;
+  --breakpoint-xxs: 21.25rem; /* 340px */
+  --breakpoint-xs: 23.125rem; /* 363px */
+  --breakpoint-xxl: 82.5rem; /* 1320px */
+
+  --color-picto-primary: #9929fb;
+  --color-picto-primary-dark: #650fa0;
   --color-soft-white: #f0f1f3;
   --color-soft-dark: #87909d;
 }
 
-.btn-primary {
-  @apply bg-myportfolio-primary border-0 text-white hover:scale-[102%] hover:bg-myportfolio-primary-dark transition-all duration-500;
+/* Custom utilities */
+@utility btn-primary {
+  background-color: var(--color-picto-primary);
+  border-width: 0;
+  color: white;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+
+  &:hover {
+    background-color: var(--color-picto-primary-dark);
+    transform: scale(1.02);
+  }
 }
+
+@utility content {
+  width: 100%;
+  @media (width >= 82.5rem) {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@utility section-title {
+  font-weight: 500;
+  font-size: 1.875rem; /* 3xl */
+  line-height: 2.25rem;
+
+  @media (width >= 40rem) {
+    /* sm */
+    font-size: 2.25rem; /* 4xl */
+    line-height: 2.5rem;
+  }
+
+  @media (width >= 48rem) {
+    /* md */
+    font-weight: 600;
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
+  }
+}
+
+@utility center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility introduction-profile-background {
+  background:
+    radial-gradient(circle at 12% 100%, #ffe2b0f5 1% 5px, transparent 15%),
+    radial-gradient(circle at 95% -15%, #da4df166 5%, transparent 30%),
+    radial-gradient(circle at center right, #c4f5e9b2 2%, transparent 35%);
+}
+
+@utility blog-background {
+  background:
+    radial-gradient(circle at -10% 0%, #da4df166 1%, transparent 25%),
+    radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
+}
+
+/* Accessibility - Skip to main content link */
+@utility skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+
+  &:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1.5rem;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+}
+
+/* Body styles */
 body {
   font-family: "Work Sans", sans-serif;
 }
 
-.content {
-  @apply max-xxl:w-full xxl:max-w-[1320px] xxl:mx-auto;
-}
+/* Ensure main content can receive focus */
+#main-content {
+  outline: none;
 
-.section-title {
-  @apply md:font-semibold text-3xl sm:text-4xl md:text-5xl font-medium;
-}
-
-.center {
-  @apply flex justify-center items-center;
-}
-
-.introduction-profile-background {
-  background:
-    radial-gradient(circle at 12% 100%, #ffe2b0f5 1% 5px, transparent 15%),
-    /* bottom left */
-    radial-gradient(circle at 95% -15%, #da4df166 5%, transparent 30%),
-    /* top right */
-    radial-gradient(circle at center right, #c4f5e9b2 2%, transparent 35%); /* center right */
-}
-.blog-background {
-  background:
-    radial-gradient(circle at -10% 0%, #da4df166 1%, transparent 25%),
-    radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
+  &:focus-visible {
+    outline: 2px solid var(--color-picto-primary);
+    outline-offset: 2px;
+  }
 }
