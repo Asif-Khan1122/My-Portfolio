@@ -1,36 +1,51 @@
 import {
   faGithub,
   faLinkedin,
-  faBehance,
   faFacebookF,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const socialIcons = [
-  { icon: faGithub, link: "https://github.com/Asif-Khan1122" },
   {
-    icon: faLinkedin,
-    link: "https://www.linkedin.com/in/asif-khan-547105375/",
+    id: "github",
+    icon: faGithub,
+    link: "https://github.com/Asif-Khan1122",
+    label: "Visit my GitHub profile",
   },
   {
+    id: "linkedin",
+    icon: faLinkedin,
+    link: "https://www.linkedin.com/in/asif-khan-547105375/",
+    label: "Visit my LinkedIn profile",
+  },
+  {
+    id: "facebook",
     icon: faFacebookF,
     link: "https://www.facebook.com/profile.php?id=61577852543267",
+    label: "Visit my Facebook profile",
   },
 ];
 
 const SocialMedia = () => {
-  return socialIcons.map((item, index) => (
-    <a
-      href={item.link}
-      className={`text-picto-primary hover:bg-picto-primary p-2 pt-3 xs:p-2.5 xs:pt-3.75 sm:pt-4 md:pt-5 sm:p-3 md:p-3.75 hover:text-white rounded-md`}
-      key={index}
-    >
-      <FontAwesomeIcon
-        icon={item.icon}
-        className={`text-xl w-4.5 aspect-square`}
-      />
-    </a>
-  ));
+  return (
+    <div className='flex gap-3'>
+      {socialIcons.map((item) => (
+        <a
+          key={item.id}
+          href={item.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={item.label}
+          className='text-picto-primary hover:bg-picto-primary p-2 pt-3 xs:p-2.5 sm:p-3 sm:pt-5 md:p-4 md:pt-5 hover:text-white rounded-md'
+        >
+          <FontAwesomeIcon
+            icon={item.icon}
+            className='text-xl w-4 aspect-square'
+          />
+        </a>
+      ))}
+    </div>
+  );
 };
 
 export default SocialMedia;

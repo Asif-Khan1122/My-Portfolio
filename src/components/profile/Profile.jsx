@@ -39,9 +39,9 @@ const Profile = () => {
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
           >
             <p className='mb-3'>
-              I design and develop services for customers specializing creating
-              stylish, modern websites, web services and online stores. My
-              passion is to design digital user experiences.
+              I design and develop modern digital experiences including
+              websites, web apps, and dashboards. My focus is on clean UI,
+              smooth UX, and scalable frontend architecture.
             </p>
             <p className='mt-3'>
               I design and develop services for customers specializing creating

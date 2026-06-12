@@ -38,8 +38,9 @@ const Introduction = () => {
           <p className='text-xs xxs:text-lg lg:text-[18px] my-6'>
             I'm a Freelance <span className='bg-highlight'>UI/UX Designer</span>{" "}
             and <span className='bg-highlight'> Developer</span> based in
-            Islamabad, Pakistan. I strives to build immersive and beautiful web
-            applications through carefully crafted code and user-centric design.
+            Islamabad, Pakistan.I strive to build immersive and visually
+            engaging web applications through carefully crafted code and
+            user-centered design.
           </p>
           <p className='text-center lg:text-start'>
             <a

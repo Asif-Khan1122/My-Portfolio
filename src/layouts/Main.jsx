@@ -6,9 +6,9 @@ const Main = () => {
   return (
     <div data-theme={"light"} className='relative'>
       <Outlet />
-      <div className='bg-[#2A374A]'>
+      <footer className='bg-[#2A374A]'>
         <Footer />
-      </div>
+      </footer>
       <ScrollToTop />
     </div>
   );

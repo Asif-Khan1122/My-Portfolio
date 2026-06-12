@@ -18,7 +18,9 @@ const Home = () => {
 
   return (
     <div className='relative'>
-      <NavBar onAiClick={() => setIsAiOpen(true)} />
+      <header className='sticky top-0 z-50'>
+        <NavBar onAiClick={() => setIsAiOpen(true)} />
+      </header>
 
       <main id='main-content' tabIndex='-1'>
         <div className='introduction-profile-background'>

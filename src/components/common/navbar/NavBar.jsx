@@ -53,7 +53,7 @@ const NavBar = ({ onAiClick }) => {
 
   return (
     <div
-      className={`sticky top-0 ${
+      className={` ${
         position > 50
           ? "bg-soft-white border-b border-gray-300"
           : "bg-white border-white"
