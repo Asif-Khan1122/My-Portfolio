@@ -1,10 +1,5 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes:
-    light --default,
-    dark --prefersdark,
-    cupcake;
-}
+@plugin "daisyui";
 
 /* Instead, apply transitions only to specific elements that need them */
 

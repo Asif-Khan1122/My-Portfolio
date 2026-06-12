@@ -10,34 +10,34 @@ import "./testimonial.css";
 const testimonialData = [
   {
     message:
-      "Working with this team was a fantastic experience. Their attention to detail and commitment to quality exceeded our expectations.",
-    quote: `From the initial consultation to the final delivery, every step was handled professionally. The end result was a product that not only met our needs but also impressed our stakeholders. Highly recommended!`,
-    name: "Esther Howard",
-    designation: "Managing Director, ABC Company",
+      "Asif delivered an outstanding e-commerce platform that perfectly captured our brand vision and exceeded user expectations.",
+    quote: `Working with Asif was incredible. He built our complete dashboard with real-time analytics and responsive design. His expertise in React and Node.js made the complex project feel effortless. Communication was excellent throughout, and he delivered ahead of schedule.`,
+    name: "Ahmed Khan",
+    designation: "CEO, TechVentures Pakistan",
   },
   {
     message:
-      "Their expertise in UI/UX design helped us transform our digital presence and improve user engagement.",
-    quote: `The team demonstrated a deep understanding of our requirements and delivered a solution that was both visually appealing and highly functional. Communication was clear throughout the project.`,
-    name: "Ali Haider",
-    designation: "COO, XYZ Company",
+      "Exceptional React developer who transformed our outdated website into a modern, high-performance platform.",
+    quote: `Asif redesigned our entire web presence with Next.js and Tailwind CSS. Page load times improved by 60%, and mobile responsiveness is now flawless. His clean code approach and attention to SEO made a significant impact on our business metrics.`,
+    name: "Sarah Mahmood",
+    designation: "Marketing Director, Digital Solutions Inc.",
   },
   {
     message:
-      "Professional, reliable, and creative—everything you want in a development partner.",
-    quote: `They delivered our project on time and went above and beyond to ensure our satisfaction. The new features have made a significant difference for our users. We look forward to working together again.`,
-    name: "Elon Max",
-    designation: "Managing Director, KFC Company",
+      "Professional, skilled, and dedicated—Asif is the developer every startup needs for rapid growth.",
+    quote: `We hired Asif for API integration and website optimization. He delivered results within 2 weeks that our previous developer couldn't achieve in months. His full-stack capabilities with TypeScript and Node.js were exactly what our project needed. Will definitely collaborate again.`,
+    name: "Zain Ul Abideen",
+    designation: "Founder, StartupHub Islamabad",
   },
 ];
 
 const Testimonial = () => {
   return (
-    <div className="flex mx-auto justify-center px-2 max-w-218 pb-10 md:pb-25">
-      <div className="w-full h-full cursor-grab">
-        <p className="section-title mb-6 text-center">Testimonial</p>
+    <div className='flex mx-auto justify-center px-2 max-w-218 pb-10 md:pb-25'>
+      <div className='w-full h-full cursor-grab'>
+        <p className='section-title mb-6 text-center'>Testimonial</p>
         <Swiper
-          id="testimonialSwiper"
+          id='testimonialSwiper'
           spaceBetween={30}
           navigation={false}
           pagination={{

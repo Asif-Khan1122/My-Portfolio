@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { FiCpu } from "react-icons/fi";
 
 const AiAssistant = ({ isOpen, onClose }) => {
+  console.log("API Key:", import.meta.env.VITE_GROQ_API_KEY);
+  console.log("All env vars:", import.meta.env);
   const [messages, setMessages] = useState([
     {
       type: "bot",
@@ -135,10 +137,13 @@ const AiAssistant = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className='fixed bottom-20 right-5 z-50 transition-all duration-300'>
-      <div className='bg-white rounded-2xl shadow-2xl w-80 sm:w-96 border border-gray-200 overflow-hidden'>
+    <div className='fixed inset-x-4 bottom-20 sm:inset-x-auto sm:right-5 sm:left-auto z-50 transition-all duration-300 sm:max-w-96 w-auto'>
+      <div
+        className='bg-white w-full sm:w-96 rounded-2xl shadow-2xl flex flex-col overflow-hidden'
+        style={{ maxHeight: "min(85vh, 600px)" }}
+      >
         {/* Header */}
-        <div className='bg-gradient-to-r from-purple-600 to-blue-500 p-4 flex justify-between items-center'>
+        <div className='bg-gradient-to-r from-purple-600 to-blue-500 p-3 sm:p-4 flex justify-between items-center shrink-0'>
           <div className='flex items-center gap-2'>
             <div className='w-8 h-8 bg-white rounded-full flex items-center justify-center'>
               <FiCpu className='text-purple-600' />
@@ -171,14 +176,14 @@ const AiAssistant = ({ isOpen, onClose }) => {
         </div>
 
         {/* Messages */}
-        <div className='h-80 overflow-y-auto p-4 bg-gray-50'>
+        <div className='h-[85vh] sm:h-80 overflow-y-auto p-4 bg-gray-50'>
           {messages.map((message, index) => (
             <div
               key={index}
               className={`mb-3 flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                className={`max-w-[85%] sm:max-w-[80%] p-3 rounded-lg text-sm break-words ${
                   message.type === "user"
                     ? "bg-purple-600 text-white rounded-br-none"
                     : "bg-white text-gray-800 border border-gray-200 rounded-bl-none"
@@ -210,14 +215,14 @@ const AiAssistant = ({ isOpen, onClose }) => {
 
         {/* Input */}
         <div className='p-3 border-t border-gray-200 bg-white'>
-          <div className='flex gap-2'>
+          <div className='flex items-center gap-2'>
             <input
               type='text'
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder='Ask about skills, projects...'
-              className='flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 text-sm'
+              className='flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 text-sm'
               disabled={isLoading}
             />
             <button
