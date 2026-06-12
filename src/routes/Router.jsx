@@ -4,8 +4,10 @@ import Loading from "../components/common/loading/Loading";
 const Home = lazy(() => import("../pages/Home"));
 const Main = lazy(() => import("../layouts/Main"));
 
-const repoName = import.meta.env.VITE_REPO_NAME || "";
-
+const basename = import.meta.env.PROD
+  ? `/${import.meta.env.VITE_REPO_NAME || ""}`
+  : "/";
+const repoName = basename.slice(1);
 export const router = createBrowserRouter(
   [
     {
@@ -18,7 +20,7 @@ export const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          element: <Home></Home>,
+          element: <Home />,
         },
       ],
     },

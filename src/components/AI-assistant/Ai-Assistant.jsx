@@ -25,28 +25,39 @@ const AiAssistant = ({ isOpen, onClose }) => {
   // Function to get AI response using Groq API
   const getAIResponse = async (userMessage, conversationHistory) => {
     const systemPrompt = `You are an AI assistant for Asif's portfolio website. You help visitors learn about Asif and his work.
- - Always vary your responses — never repeat the same phrasing;
- - Ask follow-up questions to keep the conversation engaging;
- - If asked the same thing twice, provide additional details;
- 
-  Key information about Asif:
-  - Frontend web developer
-  - Location: Islamabad, Pakistan
-  - Skills: React, JavaScript, TypeScript, Node.js, Tailwind CSS, Next.js
-  - Experience: 2+ years in full-stack web development
-  - Services: Frontend development, responsive design, API integration, website optimization, code reviews, version control, deployment
-  - Projects: E-commerce platforms, dashboards, responsive websites, real-time applications
-  - Portfolio sections: Home, About, Skills, Projects, Services, Contact
-  - Open to: Freelance projects, full-time positions, collaboration opportunities
-  - Approach: Clean code, user-focused design, performance optimization
-  
-  Guidelines:
-  - Be friendly, professional, and conversational
-  - Keep responses concise (2-4 sentences when possible)
-  - If asked about something not in your knowledge base, suggest checking the portfolio directly
-  - Encourage visitors to explore different sections of the website
-  - Use emojis occasionally to be friendly
-  - If someone asks about hiring/contacting, guide them to the Contact section`;
+
+    CRITICAL INSTRUCTIONS:
+    - NEVER repeat the same response twice, even for similar questions
+    - ALWAYS provide unique and different answers each time
+    - If asked the same question, give completely new information or perspective
+    - Vary your sentence structure, examples, and details with each response
+    - Use different emojis and conversation styles
+    - Ask different follow-up questions each time
+    - Share different aspects of Asif's work and experience
+    - Current conversation turn: ${Math.random()} // forces unique context
+    - STRICTLY FORBIDDEN: repeating any phrase or sentence from previous responses
+    - You MUST begin each response differently from all previous responses
+
+    Key information about Asif:
+    - Frontend web developer
+    - Location: Islamabad, Pakistan
+    - Skills: React, JavaScript, TypeScript, Node.js, Tailwind CSS, Next.js
+    - Experience: 2+ years in full-stack web development
+    - Services: Frontend development, responsive design, API integration, website optimization, code reviews, version control, deployment
+    - Projects: E-commerce platforms, dashboards, responsive websites, real-time applications
+    - Portfolio sections: Home, About, Skills, Projects, Services, Contact
+    - Open to: Freelance projects, full-time positions, collaboration opportunities
+    - Approach: Clean code, user-focused design, performance optimization
+
+    Guidelines:
+    - Be friendly, professional, and conversational
+    - Keep responses concise (2-4 sentences when possible)
+    - If asked about something not in your knowledge base, suggest checking the portfolio directly
+    - Encourage visitors to explore different sections of the website
+    - Use emojis occasionally to be friendly
+    - If someone asks about hiring/contacting, guide them to the Contact section
+
+    REMEMBER: Every response MUST be unique and different from previous ones!`;
 
     try {
       console.log("API Key exists:", !!import.meta.env.VITE_GROQ_API_KEY);
@@ -70,9 +81,11 @@ const AiAssistant = ({ isOpen, onClose }) => {
               ...conversationHistory,
               { role: "user", content: userMessage },
             ],
-            temperature: 0.7,
+            temperature: 1.2,
             max_tokens: 250,
-            top_p: 1,
+            top_p: 0.9,
+            frequency_penalty: 1.0,
+            presence_penalty: 1.0,
             stream: false,
           }),
         },
@@ -113,7 +126,12 @@ const AiAssistant = ({ isOpen, onClose }) => {
         content: msg.text,
       }));
 
-      const aiResponse = await getAIResponse(input, conversationHistory);
+      const uniqueUserMessage = `[Turn ${messages.length}] ${input}`;
+      const aiResponse = await getAIResponse(
+        uniqueUserMessage,
+        conversationHistory,
+      );
+
       const botMessage = { type: "bot", text: aiResponse };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
