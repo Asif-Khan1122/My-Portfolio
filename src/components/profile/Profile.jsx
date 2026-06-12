@@ -16,7 +16,7 @@ const Profile = () => {
             <img
               className='bg-soft-white h-[120%] object-cover'
               src={person}
-              alt=''
+              alt='Asif Khan - Professional UX Designer'
             />
           </div>
           {/* Social media section */}
@@ -38,7 +38,7 @@ const Profile = () => {
           <div
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
           >
-            <p className={``}>
+            <p className='mb-3'>
               I design and develop services for customers specializing creating
               stylish, modern websites, web services and online stores. My
               passion is to design digital user experiences.
@@ -51,13 +51,15 @@ const Profile = () => {
           <div className='mt-8 flex max-md:justify-center'>
             <a
               className='btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]'
-              href='#!'
+              href='#projects'
             >
               My Projects
             </a>
             <a
               className={`btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary  ms-4 text-xs xxs:text-[14px] sm:text-[16px]`}
-              href='#!'
+              href='./CV.pdf'
+              download
+              target='_blank'
             >
               <FontAwesomeIcon icon={faDownload} /> Download CV
             </a>

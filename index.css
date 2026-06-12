@@ -1,20 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Instead, apply transitions only to specific elements that need them */
-
 @theme {
-  --breakpoint-xxs: 21.25rem; /* 340px */
-  --breakpoint-xs: 23.125rem; /* 363px */
-  --breakpoint-xxl: 82.5rem; /* 1320px */
-
+  --breakpoint-xxs: 21.25rem;
+  --breakpoint-xs: 23.125rem;
+  --breakpoint-xxl: 82.5rem;
   --color-picto-primary: #9929fb;
   --color-picto-primary-dark: #650fa0;
   --color-soft-white: #f0f1f3;
   --color-soft-dark: #87909d;
 }
 
-/* Custom utilities */
 @utility btn-primary {
   background-color: var(--color-picto-primary);
   border-width: 0;
@@ -40,19 +36,17 @@
 
 @utility section-title {
   font-weight: 500;
-  font-size: 1.875rem; /* 3xl */
+  font-size: 1.875rem;
   line-height: 2.25rem;
 
   @media (width >= 40rem) {
-    /* sm */
-    font-size: 2.25rem; /* 4xl */
+    font-size: 2.25rem;
     line-height: 2.5rem;
   }
 
   @media (width >= 48rem) {
-    /* md */
     font-weight: 600;
-    font-size: 3rem; /* 5xl */
+    font-size: 3rem;
     line-height: 1;
   }
 }
@@ -76,8 +70,16 @@
     radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
 }
 
-/* Accessibility - Skip to main content link */
-@utility skip-to-main {
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+#main-content:focus-visible {
+  outline: 2px solid var(--color-picto-primary);
+  outline-offset: 2px;
+}
+
+.skip-to-main {
   position: absolute;
   left: -9999px;
   top: auto;
@@ -85,35 +87,32 @@
   height: 1px;
   overflow: hidden;
   z-index: 9999;
-
-  &:focus {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    width: auto;
-    height: auto;
-    padding: 0.75rem 1.5rem;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    outline: 2px solid white;
-    outline-offset: 2px;
-  }
 }
 
-/* Body styles */
-body {
-  font-family: "Work Sans", sans-serif;
+.skip-to-main:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
-/* Ensure main content can receive focus */
-#main-content {
-  outline: none;
+.swiper-pagination-bullet-active {
+  background-color: var(--color-picto-primary) !important;
+  width: 30px;
+  height: 8px;
+  border-radius: 100px;
+  transition: 0.4s;
+}
 
-  &:focus-visible {
-    outline: 2px solid var(--color-picto-primary);
-    outline-offset: 2px;
-  }
+.swiper-pagination-bullet {
+  background-color: var(--color-soft-dark);
 }
